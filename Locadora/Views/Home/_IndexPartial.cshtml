@@ -1,0 +1,19 @@
+﻿<div class="row no-gutter">
+    @{
+        string[] imgs = {
+    "~/css/images/portfolio/1.jpg",
+    "~/css/images/portfolio/2.jpg",
+    "~/css/images/portfolio/3.jpg",
+    "~/css/images/portfolio/4.jpg",
+    "~/css/images/portfolio/5.jpg"
+    };
+    }
+    @foreach (var img in imgs)
+    {
+        <div class="col-xs-2 col-md-2">
+            <a href="#" class="portfolio-box">
+                <img src="@Url.Content(img)" alt="Vinhos" width="380" height="200" />
+            </a>
+        </div>
+    }
+</div>
