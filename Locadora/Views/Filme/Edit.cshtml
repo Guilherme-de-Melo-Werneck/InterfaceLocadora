@@ -6,53 +6,96 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="pt-br">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
+    <title>Editar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 20px;
+        }
+
+        h4 {
+            color: #007bff;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+            .back-link:hover {
+                color: #0056b3;
+            }
+    </style>
 </head>
 <body>
 
-<h4>Filme</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <input type="hidden" asp-for="FilmeID" class="form-control" />
+    <div class="container">
+        <h4>Filme</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="FilmeID" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Nome" class="control-label"></label>
+                        <input asp-for="Nome" class="form-control" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Genero" class="control-label"></label>
+                        <input asp-for="Genero" class="form-control" />
+                        <span asp-validation-for="Genero" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Sobre" class="control-label"></label>
+                        <textarea asp-for="Sobre" class="form-control"></textarea>
+                        <span asp-validation-for="Sobre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Salvar" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Genero" class="control-label"></label>
-                <input asp-for="Genero" class="form-control" />
-                <span asp-validation-for="Genero" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sobre" class="control-label"></label>
-                <input asp-for="Sobre" class="form-control" />
-                <span asp-validation-for="Sobre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-            <div class="form-group">
-                
-            </div>
-        </form>
+        </div>
+
+        <div>
+            <a asp-action="Index" class="back-link">Voltar para a Lista</a>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 </body>
 </html>

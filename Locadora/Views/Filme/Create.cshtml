@@ -6,17 +6,59 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="pt-br">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>Criar Filme</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 20px;
+        }
+
+        h4 {
+            color: #007bff;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+            .back-link:hover {
+                color: #0056b3;
+            }
+    </style>
 </head>
 <body>
 
-<h4>Filme</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <div class="container form-container">
+        <h4>Filme</h4>
+        <hr />
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -31,22 +73,21 @@
             </div>
             <div class="form-group">
                 <label asp-for="Sobre" class="control-label"></label>
-                <input asp-for="Sobre" class="form-control" />
+                <textarea asp-for="Sobre" class="form-control"></textarea>
                 <span asp-validation-for="Sobre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-primary" />
             </div>
         </form>
+
+        <a asp-action="Index" class="back-link">Voltar para a Lista</a>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 </body>
 </html>
