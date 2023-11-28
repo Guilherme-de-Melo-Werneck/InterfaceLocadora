@@ -20,13 +20,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item nav-item-border">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item nav-item-border">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Sobre</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">Sobre</a>
                         </li>
                         <li class="nav-item nav-item-border">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Filme" asp-action="Index">Catálogo</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["Controller"].ToString() == "Filme" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-area="" asp-controller="Filme" asp-action="Index">Catálogo</a>
                         </li>
                     </ul>
                 </div>
@@ -50,4 +50,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
